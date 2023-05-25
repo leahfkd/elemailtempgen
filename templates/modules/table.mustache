@@ -1,0 +1,37 @@
+<!---------------------------------  CUSTOM CONTENT START HERE    ----------------------------->
+                  <!--table -->
+                  <div style="width:100%;background-color:{{modTable.bgcolor}};">
+                    <div class="u-row" style="Margin: 0 auto;min-width: 320px;max-width: 600px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: transparent;padding: 5px 0px 5px 0px;">
+                      <table id="u_content_image_1" style="font-family:'Rubik',sans-serif;" role="presentation"
+                      cellpadding="0" cellspacing="0" width="100%" border="0">
+                        <tbody>
+                          <tr>
+                            <td class="v-container-padding-padding"
+                              style="overflow-wrap:break-word;word-break:break-word;padding:0px 0px 0px;font-family:'Rubik',sans-serif;"
+                              align="left">
+
+                              <table width="100%" cellpadding="0" cellspacing="0" border="0" style="text-align: center;">
+                                <thead style="background-color:#000;">
+                                  {{#modTable.columns}}
+                                    <td style="padding:20px 0px 20px;color:#ffff;">{{title}}</td>
+                                  {{/modTable.columns}}
+                                </thead>
+                                <tbody style="background-color: #ffff;">
+                                  {{#modTable.rows}}
+                                  <tr>
+                                    {{#.}}
+                                    <td style="padding:20px 0px 20px;border-bottom:1px solid black;">{{title}}</td>
+                                    {{/.}}
+                                  </tr>
+                                  {{/modTable.rows}}
+                                </tbody>
+                              </table>
+
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                  
+<!---------------------------------  CUSTOM CONTENT END HERE    ------------------------------->
