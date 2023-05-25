@@ -1,7 +1,7 @@
 
 # Email template generator
 
-Generates email.
+Generates email templates for the following
 
 
 ... TODO: More descriptions

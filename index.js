@@ -6,7 +6,7 @@
 
  'use strict'
 const mustache = require('mustache');
-const fs = require('node:fs');
+const fs = require('fs');
 
 const getModTemplate = (type, objKey) => {
   let tmp = ''
