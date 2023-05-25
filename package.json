@@ -1,6 +1,6 @@
 {
   "name": "elemailtempgen",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Email template generator",
   "main": "index.js",
   "scripts": {
