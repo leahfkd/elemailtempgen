@@ -6,7 +6,8 @@
  * Modified By: Lei                                                  *
  */
 
-const emailhelper = require('./')
+const emailhelper = require('./');
+const mustache = require('mustache');
 
 console.log('PACKAGE TEST')
 console.log(' ============================================= ');
@@ -21,7 +22,13 @@ const singlemodulewithoutkey = (mod = 'label') => {
   // TODO make this properly work
   if (mod ==='chart') {
     const mainx = emailhelper.processAllTemplates([mod]);
-    console.log(mainx)
+    const obj = {
+      modChart: {
+        src: 'https://image-charts.com/chart?cht=p3&chs=700x100&chd=t:60,40&chl=Hello|World&chan&chf=ps0-0,lg,45,ffeb3b,0.2,f44336,1|ps0-1,lg,45,8bc34a,0.2,009688,1'
+      }
+    }
+    // const html = mustache.render(mainx, obj)
+    // console.log(html)
   }
   if (_singlemodulewithoutkey != '') console.log("Ok")
   console.log('...........')
@@ -52,7 +59,7 @@ callTest(multipletemplateswithoutkey, 500);
 callTest(()=>{ console.log('running multiple module with key:')}, 550);
 callTest(multipletemplateswithkey, 600);
 callTest(()=>{ console.log('running multiple module with key:')}, 650);
-callTest(multipletemplateswithkey, 700);
+callTest(singlemodulewithkey, 700);
 /// different modules
 
 const modules = ['button','chart']

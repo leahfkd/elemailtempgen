@@ -38,7 +38,7 @@ const getModTemplate = (type, objKey) => {
       case 'image':
         temp = temp.replaceAll('modImage',`${objKey}`)
       case 'chart':
-        temp = temp.replaceAll('modImage',`${objKey}`)
+        temp = temp.replaceAll('modChart',`${objKey}`)
         break;
     }
   }
