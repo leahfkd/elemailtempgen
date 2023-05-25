@@ -1,5 +1,5 @@
 
-# Email template generator
+# Email template generator ( WORKING IN PROGRESS)
 
 Generates email templates for the following modules
 
@@ -13,7 +13,7 @@ Generates email templates for the following modules
 
 ## Installation
 ```bash
-  npm install elemailtemp
+  npm install elemailtempgen
 ```
 
 Example to include the package to project file:

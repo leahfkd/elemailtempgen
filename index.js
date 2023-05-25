@@ -7,6 +7,7 @@
  'use strict'
 const mustache = require('mustache');
 const fs = require('fs');
+const path = require('path');
 
 const getModTemplate = (type, objKey) => {
   let tmp = ''
@@ -16,7 +17,7 @@ const getModTemplate = (type, objKey) => {
     console.log(`Template ${type} is not available`)
     return tmp
   }
-  let temp = fs.readFileSync(`./templates/modules/${type}.mustache`).toString()
+  let temp = fs.readFileSync(path.join(__dirname,`templates/modules/${type}.mustache`)).toString()
   if (objKey) {
     switch (type) {
       case 'table':
@@ -44,7 +45,7 @@ const getModTemplate = (type, objKey) => {
  
 const attachModulesToMainTemp = (modules) => {
   const obj = {modules: modules}
-  const s = fs.readFileSync('./templates/main.mustache').toString()
+  const s = fs.readFileSync(path.join(__dirname, 'templates/main.mustache')).toString()
   const html = mustache.render(s, obj)
   return html
 }
