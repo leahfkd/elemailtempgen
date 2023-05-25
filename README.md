@@ -9,7 +9,7 @@ Generates email templates for the following modules
 - image
 - label
 - table
-- highchart (TODO)
+- chart (TODO) ..see https://www.image-charts.com/blog/create-chart-with-one-url
 
 ## Installation
 ```bash

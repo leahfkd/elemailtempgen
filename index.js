@@ -12,7 +12,7 @@ const path = require('path');
 const getModTemplate = (type, objKey) => {
   let tmp = ''
   // const validtemps = ['table','button','label','image','datacard','description']
-  const validtemps = ['table', 'datacard', 'label', 'image', 'description', 'button']
+  const validtemps = ['table', 'datacard', 'label', 'image', 'description', 'button','chart']
   if (!validtemps.includes(type)) {
     console.log(`Template ${type} is not available`)
     return tmp
@@ -36,6 +36,8 @@ const getModTemplate = (type, objKey) => {
         temp = temp.replaceAll('modButton',`${objKey}`)
         break;
       case 'image':
+        temp = temp.replaceAll('modImage',`${objKey}`)
+      case 'chart':
         temp = temp.replaceAll('modImage',`${objKey}`)
         break;
     }

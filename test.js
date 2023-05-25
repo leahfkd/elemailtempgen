@@ -11,14 +11,18 @@ const emailhelper = require('./')
 console.log('PACKAGE TEST')
 console.log(' ============================================= ');
 
-const callTest = (n, tmx = 1000) => {
+const callTest = (n, tmx = 1000, param) => {
   setTimeout(() => {
-    n()
+    n(param)
   }, tmx);
 }
 const singlemodulewithoutkey = (mod = 'label') => {
   const _singlemodulewithoutkey = emailhelper.getModTemplate(mod);
   // TODO make this properly work
+  if (mod ==='chart') {
+    const mainx = emailhelper.processAllTemplates([mod]);
+    console.log(mainx)
+  }
   if (_singlemodulewithoutkey != '') console.log("Ok")
   console.log('...........')
 }
@@ -49,6 +53,15 @@ callTest(()=>{ console.log('running multiple module with key:')}, 550);
 callTest(multipletemplateswithkey, 600);
 callTest(()=>{ console.log('running multiple module with key:')}, 650);
 callTest(multipletemplateswithkey, 700);
+/// different modules
 
+const modules = ['button','chart']
+let currenttime = 700
+modules.forEach(mod => {
+  currenttime = currenttime+50
+  callTest(()=>{ console.log(`running single module ${mod} without key:`)}, currenttime);
+  currenttime = currenttime +100
+  callTest(singlemodulewithoutkey, currenttime, mod);
+})
 callTest(()=>{ console.log('===============================')}, 750);
 callTest(()=>{ console.log('Test complete')}, 750);
