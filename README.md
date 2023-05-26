@@ -163,7 +163,7 @@ console.log(html);
 
 ```
 
-Full example for default key:
+Full example for custom key:
 ```
 const emailhelper = require('elemailtempgen')
 const mustache = require('mustache');
