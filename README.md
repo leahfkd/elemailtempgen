@@ -95,6 +95,7 @@ console.log(htmlcontent);
 | description | content | modDescription   |
 | image | src, bgcolor | modImage   |
 | chart | src | modChart   |
+| href | link, label | modHref   |
 | table | columns, rows, bgcolor | modTable   |
 
 Module table additional objects for columns and rows

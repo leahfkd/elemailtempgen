@@ -8,11 +8,13 @@
 const mustache = require('mustache');
 const fs = require('fs');
 const path = require('path');
+const constants = require('./constants');
 
 const getModTemplate = (type, objKey) => {
   let tmp = ''
   // const validtemps = ['table','button','label','image','datacard','description']
-  const validtemps = ['table', 'datacard', 'label', 'image', 'description', 'button','chart']
+  // const validtemps = ['table', 'datacard', 'label', 'image', 'description', 'button','chart','href']
+  const validtemps = constants.validModules
   if (!validtemps.includes(type)) {
     console.log(`Template ${type} is not available`)
     return tmp
@@ -39,6 +41,9 @@ const getModTemplate = (type, objKey) => {
         temp = temp.replaceAll('modImage',`${objKey}`)
       case 'chart':
         temp = temp.replaceAll('modChart',`${objKey}`)
+        break;
+      case 'href':
+        temp = temp.replaceAll('modHref',`${objKey}`)
         break;
     }
   }

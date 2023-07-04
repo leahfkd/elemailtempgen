@@ -8,6 +8,7 @@
 
 const emailhelper = require('./');
 const mustache = require('mustache');
+const constants = require('./constants');
 
 console.log('PACKAGE TEST')
 console.log(' ============================================= ');
@@ -22,11 +23,11 @@ const singlemodulewithoutkey = (mod = 'label') => {
   // TODO make this properly work
   if (mod ==='chart') {
     const mainx = emailhelper.processAllTemplates([mod]);
-    const obj = {
-      modChart: {
-        src: 'https://image-charts.com/chart?cht=p3&chs=700x100&chd=t:60,40&chl=Hello|World&chan&chf=ps0-0,lg,45,ffeb3b,0.2,f44336,1|ps0-1,lg,45,8bc34a,0.2,009688,1'
-      }
-    }
+    // const obj = {
+    //   modChart: {
+    //     src: 'https://image-charts.com/chart?cht=p3&chs=700x100&chd=t:60,40&chl=Hello|World&chan&chf=ps0-0,lg,45,ffeb3b,0.2,f44336,1|ps0-1,lg,45,8bc34a,0.2,009688,1'
+    //   }
+    // }
     // const html = mustache.render(mainx, obj)
     // console.log(html)
   }
@@ -39,17 +40,18 @@ const multipletemplateswithoutkey = (mod = ['label','button']) => {
   if (_multipletemplateswithoutkey != '') console.log("Ok")
   console.log('...........')
 }
-const multipletemplateswithkey = (mod = [{key:'xyz1', module: 'label'}]) => {
+const multipletemplateswithkey = (mod = [{key:'label_id1', module: 'label'}]) => {
   const _multipletemplateswithkey = emailhelper.processAllTemplates(mod);
   // TODO make this properly work
   if (_multipletemplateswithkey != '') console.log("Ok")
   console.log('...........')
 }
 
-const singlemodulewithkey = (mod = 'label', key = 'xyz') => {
+const singlemodulewithkey = (mod = 'label', key = 'label_id1') => {
   const _singlemodulewithkey = emailhelper.getModTemplate(mod,key);
   // TODO make this properly work
   if (_singlemodulewithkey != '') console.log("Ok")
+  // console.log(_singlemodulewithkey)
   console.log('...........')
 }
 callTest(()=>{ console.log('running single module without key:')}, 100);
@@ -62,7 +64,7 @@ callTest(()=>{ console.log('running multiple module with key:')}, 650);
 callTest(singlemodulewithkey, 700);
 /// different modules
 
-const modules = ['button','chart']
+const modules = constants.validModules
 let currenttime = 700
 modules.forEach(mod => {
   currenttime = currenttime+50
